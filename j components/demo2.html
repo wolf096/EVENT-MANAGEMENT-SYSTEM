@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Array Operations</title>
+</head>
+<body>
+<h1> Web Development </h1>
+<script>
+let sem1=["os","wt","cn","python","ml","cn",1, 100,50,20];
+let sem2=["ds","ai"];
+let sem3=["bigdata","dsp"];
+document.write("<h1> Splicing  "+ sem1.splice(6,0,"iot","poc","toc") +"</h1>");
+document.write("<h2> After Splicing sem1  "+ sem1 +"</h1>");
+let list=sem1.concat(sem2, sem3);
+document.write("<h1> Concatenated list of courses "+ list +"</h1>");
+let str=sem1.join(" ");
+document.write("<h1> Courses are "+ str +"</h1>");
+document.write("<h3>Index of cn"+ sem1.lastIndexOf("cn")+"</h3>");
+document.write("<h3>Type of list"+typeof(str)+"</h3>");
+document.write("<h3> Removing first element"+sem1.shift("os")+"</h3>");
+document.write("<h3> After removing first element:"+ sem1 +"</h3>");
+sem1.unshift("operating systems");
+document.write("<h3> After adding first element:"+ sem1 +"</h3>");
+sem1.reverse();
+document.write("<h3> After reversing:"+ sem1 +"</h3>");
+document.write("<h3> Slicing 1 to 4:"+ sem1.slice(1,4) +"</h3>");
+document.write("<h3> Convert to String:"+ sem1.toString() +"</h3>");
+document.write("<h3>Type of list"+typeof(sem1.valueOf())+"</h3>");
+<h1> Date Object </h1>
+let name="Vellore Institute of Technology"
+document.write("<h3>"+name.length+"</h3>");
+document.write("<h3>"+name.toLowerCase()+"</h3>");
+
+let date=new Date("August 31,2001");
+document.write("<h3>"+date+"</h3>");
+let yob=date.getFullYear();
+let currdate=new Date();
+let curryear=currdate.getFullYear();
+age=curryear-yob;
+document.write("<h3>Year of birth: "+ yob +"</h3>");
+document.write("<h3>Current Year: "+curryear +"</h3>");
+document.write("<h3>Age: "+age+"</h3>");
+</script>
+</body>
+</html>

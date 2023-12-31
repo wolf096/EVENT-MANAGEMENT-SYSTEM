@@ -1,0 +1,106 @@
+<html>
+<head>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body{
+            background-image: url("background.png");
+        }
+        form {
+            margin: 0px auto;
+            width: 500px;
+        }
+        .container {
+            width: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 50px;
+            border-radius: 5px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+            background-color: whitesmoke;
+        }
+        input[type="submit"],
+        input[type="date"],
+        textarea,button,
+        input[type="text"] {
+            padding: 10px;
+            align-content: center;
+            width: 100%;
+            margin: 10px 0px;
+        }
+        input[type="submit"]:hover {
+            background-color: blue;
+        }
+        .error{
+            color: red;
+        }
+        button a{
+            text-decoration: none;
+            color: black;
+        }
+        button:hover{
+            background-color: blue;
+            color:white;
+        }
+        font{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Birthday Celebration Planner</h1>
+        <form name="birthdayForm" onsubmit="return validate()">
+            <label>Your Name<font>*</font>:</label>
+            <input type="text" id="name" name="name" required><br>
+            <span class="error" id="nameError"></span><br>
+            <label>Birthday Person's Name<font>*</font>:</label>
+            <input type="text" id="birthdayPerson" name="birthdayPerson"><br>
+            <span class="error" id="perError"></span><br>
+            <label>Date of Celebration<font>*</font>:</label>
+            <input type="date" id="date" name="date"><br>
+            <span class="error" id="dateError"></span><br>
+            <label>Birthday Message:</label>
+            <textarea id="message" name="message" rows="4"></textarea><br>
+            <input type="submit" value="Submit">
+            <button><a href="event.html">Back</a></button> 
+        </form>
+        <div id="celebrationMessage"></div>
+    </div>
+    <script>
+        function validate() {
+            document.getElementById("nameError").textContent = "";
+            var name = document.getElementById("name").value;
+            var isValid = true;
+            if (!name.match(/^[a-z A-Z \.\s]+$/)){
+                document.getElementById("nameError").textContent="please enter your name";
+                isValid = false;
+            }
+           var birthdayPerson=document.getElementById("birthdayPerson").value;
+            document.getElementById("perError").textContent="";
+            if (!birthdayPerson.match(/^[a-z A-Z \.\s]+$/)){
+                document.getElementById("perError").textContent="please enter your Birthday Person";
+                isValid = false;
+            }
+            document.getElementById("dateError").textContent="";
+            var date= document.getElementById("date").value;
+            var selectDate=new Date(date);
+        var currentDate= new Date();            
+                    if(selectDate<=currentDate)
+            {
+                document.getElementById("dateError").textContent="please enter the future date";
+            isValid=false;
+            }
+            if(date=="")
+            {
+                document.getElementById("dateError").textContent="please enter the date";
+            isValid=false;
+            }
+            return isValid;    
+        }
+    </script>
+</body>
+</html>

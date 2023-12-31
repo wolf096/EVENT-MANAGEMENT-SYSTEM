@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Date</title>
+</head>
+<body>
+<h1> Date Object </h1>
+<script>
+let name="Vellore Institute of Technology"
+document.write("<h3>"+name.length+"</h3>");
+document.write("<h3>"+name.toUpperCase()+"</h3>");
+
+let date=new Date("August,31 2001");
+document.write("<h3>"+date+"</h3>");
+let yob=date.getFullYear();
+let currdate=new Date();
+let curryear=currdate.getFullYear();
+age=curryear-yob;
+document.write("<h3>Year of birth: "+ yob +"</h3>");
+document.write("<h3>Current Year: "+curryear +"</h3>");
+document.write("<h3>Age: "+age+"</h3>");
+
+</script>
+</body>

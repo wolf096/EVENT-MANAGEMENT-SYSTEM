@@ -1,0 +1,122 @@
+<html>
+    <style>
+        font{
+            color:red;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin: 0px auto;
+            width: 500px;
+        }
+        .container {
+            width: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+            padding: 50px;
+            border-radius: 10px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+            background-color: whitesmoke;
+        }
+        input[type="submit"],
+        input[type="date"],
+        textarea,button,
+        input[type="text"] {
+            padding: 10px;
+            align-content: center;
+            width: 100%;
+            margin: 10px 0px;
+        }
+        input[type="submit"]:hover {
+            background-color: blue;
+        }
+        .error{
+            color: red;
+        }
+        button a{
+            text-decoration: none;
+            color: black;
+        }
+        button:hover{
+            background-color: blue;
+            color:white;
+        }
+        body{
+            background-image: url("background.png");
+        }
+    </style>
+    <script>
+        function validate(){
+            var name=document.getElementById("name").value;
+            var chiefGuest=document.getElementById("chiefGuest").value;
+            var date=document.getElementById("date").value;
+            var place=document.getElementById("Place").value;
+            var about=document.getElementById("about").value;
+
+             document.getElementById("nameError").textContent="";
+             document.getElementById("chiefError").textContent="";
+             document.getElementById("dateError").textContent="";
+             document.getElementById("placeError").textContent="";
+             document.getElementById("aboutError").textContent="";
+             var isValid=true;
+            if(!name.match(/^[a-z A-Z \.\s]+$/)){
+                document.getElementById("nameError").textContent="Please enter the name";
+                isValid=false;
+            }
+            if(!chiefGuest.match(/^[a-z A-Z \.\s]+$/))
+            {
+                document.getElementById("chiefError").textContent="Enter the Chief Guest";
+                isValid=false;
+            }
+            var currentDate=new Date()
+            var entereddate=new Date(date);
+            if(entereddate<currentDate)
+            {
+                document.getElementById("dateError").textContent="enter the future date";
+                isValid=false;
+            }
+            if (date == "") {
+                document.getElementById("dateError").textContent = "Enter the date";
+                isValid = false;
+            } 
+            if(place=="")
+            {
+                document.getElementById("placeError").textContent="Enter the place";
+                isValid=false;
+            }
+            if(about=="")
+            {
+                document.getElementById("aboutError").textContent="Enter the details";
+                isValid=false;
+            }
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bussiness Mastery event</h1>
+        <form name="birthdayForm" onsubmit="return validate()">
+            <label>Your Name<font>*</font>:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error" id="nameError"></span><br>
+            <label>Cheif Guest<font>*</font>:</label>
+            <input type="text" id="chiefGuest" name="chiefGuest"><br>
+            <span class="error" id="chiefError"></span><br>
+            <label>Place<font>*</font>:</label>
+            <input type="text" id="Place" name="Place"><br>
+            <span class="error" id="placeError"></span><br>
+            <label>Date<font>*</font>:</label>
+            <input type="date" id="date" name="date"><br>
+            <span class="error" id="dateError"></span><br>
+            <label>About the Mastery<font>*</font>:</label>
+            <textarea id="about" name="about" rows="4"></textarea><br>
+            <span class="error" id="aboutError"></span><br>
+            <input type="submit" value="Submit">
+            <button><a href="event.html">Back</a></button> 
+        </form>
+        <div id="celebrationMessage"></div>
+    </div> 
+</html>

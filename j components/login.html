@@ -1,0 +1,117 @@
+<html>
+<head>
+    <style>
+        form {
+            margin: 0px auto;
+            width: 500px;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0px auto;
+            border: 2px solid black;
+            padding: 50px;
+            border-radius: 5px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background-image: url("background.png");
+        }
+
+        input[type="submit"],
+        button {
+            padding: 10px;
+            align-content: center;
+            width: 40%;
+            margin-left: 30px
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            align-content: center;
+            width: 100%;
+            margin: 10px 0px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: blue;
+            color: black;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button:hover {
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+    <script>
+        function validate() {
+            document.getElementById("nameerror").textContent = "";
+            document.getElementById("emailerror").textContent = "";
+            document.getElementById("pwderror").textContent = "";
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("pwd").value;
+            var isValid = true;
+
+            if (!name.match(/^[a-zA-Z.\s]+$/)) {
+                document.getElementById("nameerror").textContent = "Please enter your name";
+                isValid = false;
+            }
+
+            if (email.trim() !== "" && !email.match(/^[a-z0-9.]+@[a-z]{5}\.[a-z]{3}$/)) {
+                document.getElementById("emailerror").textContent = "Please enter a valid email address";
+                isValid = false;
+            }
+
+            if (!password.match(/^[a-zA-Z0-9]+$/)) {
+                document.getElementById("pwderror").textContent = "Please enter the password";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Page</h1>
+        <form name="loginform" onsubmit="return validate()">
+            <label>User Name<font>*</font>: </label>
+            <input type="text" name="name" id="name">
+            <span class="error" id="nameerror"></span><br>
+            <label>Email(optional): </label>
+            <input type="text" name="email" id="email">
+            <span class="error" id="emailerror"></span><br>
+            <label>Password<font>*</font>:</label>
+            <input type="password" name="pwd" id="pwd">
+            <span class="error" id="pwderror"></span><br>
+            <input type="submit" value="Sign Up">
+            <button><a href="index.html">Back</a></button>
+        </form>
+    </div>
+</body>
+</html>
